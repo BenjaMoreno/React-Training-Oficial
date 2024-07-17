@@ -1,0 +1,24 @@
+.formulario-sesion {
+  display: flex;
+  flex-direction: column;color: rgb(9, 192, 9);
+}
+.btn-cerrar-form-sesion {
+  width: min-content;
+  height: min-content;
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  background-color:#121329 ;
+  color: white;
+  border:  solid grey 1px;
+  border-radius: 4px;
+}
+.formulario-sesion input{
+    margin: 30px 0;
+    height: 30px;
+}
+.ingresar{
+    width: min-content;
+    font-size: 1.2rem;
+    margin: auto;
+}
