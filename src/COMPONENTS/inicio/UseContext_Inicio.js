@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import "./UseContext_Inicio.css";
 import { UseContext_ContextoUno } from "../../CONTEXTS/UseContext_ContextoUno";
-import { ContextoNombre } from "../../CONTEXTS/ContextoNombre";
+import { ContextoUsuario } from "../../CONTEXTS/ContextoUsuario";
 
 export const UseContext_Inicio = () => {
   const contextoUno = useContext(UseContext_ContextoUno);
-  const contextoUsuario = useContext(ContextoNombre);
+  const contextoUsuario = useContext(ContextoUsuario);
   return (
     <div className="container_UseContext_Inicio">
       <section className="seccion-contexto-inicio">
@@ -27,9 +27,15 @@ export const UseContext_Inicio = () => {
         <p>
           El usuario actual es:&nbsp;
           <strong>
-            {contextoUsuario == ""
-              ? "No se ha ingresado un usuario"
-              : contextoUsuario}
+            {contextoUsuario== null
+              ? "No se ha ingresado un usuario,inicia sesion para proyectar tu nombre"
+              : contextoUsuario.nombre}
+          </strong><br/>
+          El email del usuario es:&nbsp;
+          <strong>
+            {contextoUsuario== null
+              ? "El usuario no se ha registrado,no podemos mostrar su email"
+              : contextoUsuario.email}
           </strong>
         </p>
       </section>

@@ -6,7 +6,7 @@ import * as Yup from "yup";
 export const IniciarSesion = ({
   cerrarFormSesion,
   nombreSesion,
-  cambiarContextoUsuario,
+  objetoUsuario
 }) => {
   // Validacion con FORMIK y YUP
   const formik = useFormik({
@@ -22,26 +22,14 @@ export const IniciarSesion = ({
       email: Yup.string().required(),
     }),
     onSubmit: (values) => {
-      //enviar al Contexto Usuario
-      cambiarContextoUsuario(values.nombre);
-      //enviar email al navbar
-      nombreSesion(values.email);
+      //enviar objeto usuario al contexto
+      objetoUsuario(values)
+      
       //cerrar modal
       cerrarFormSesion();
     },
   });
-  // const recogerDatosSesion=(e)=>{
-  //     e.preventDefault();
-  //     let target=e.target;
-  //     let nombre=target.nombre.value;
-  //     let email=target.email.value;
-  //     //enviar al Contexto Usuario
-  //     cambiarContextoUsuario(nombre)
-  //     //enviar email al navbar
-  //     nombreSesion(email)
-  //     //cerrar modal
-  //     cerrarFormSesion()
-  // }
+
   return (
     <form className="formulario-sesion" onSubmit={formik.handleSubmit}>
       <button className="btn-cerrar-form-sesion" onClick={cerrarFormSesion}>

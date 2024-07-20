@@ -1,14 +1,18 @@
-.container_UseContext_Inicio{
-    height: auto;
-    width: 100%;
-    padding: 10%;
-    box-sizing: border-box;
+.container_UseContext_Inicio {
+  height: auto;
+  width: 100%;
+  padding: 10%;
+  box-sizing: border-box;
 }
-.seccion-contexto-inicio{
-    border: solid white 1px;
-border-radius: 20px;
-text-align: center;
+.seccion-contexto-inicio {
+  border: solid white 1px;
+  border-radius: 20px;
+  text-align: center;
 }
-.seccion-contexto-inicio h1{
-    font-size: 3rem;
+.seccion-contexto-inicio h1 {
+  font-size: 3rem;
 }
+.seccion-contexto-inicio p strong{
+  color: red;
+}
+
