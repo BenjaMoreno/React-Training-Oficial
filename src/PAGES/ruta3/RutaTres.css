@@ -1,0 +1,14 @@
+.funcionalidades {
+  width: 100vw;
+  height: auto;
+  min-height: 80vh;
+}
+.funcionalidades h1 {
+  text-align: center;
+  color: aliceblue;
+  padding: 5vh;
+}
+.titulos-h2 {
+  color: white;
+  padding-left: 10vw;
+}

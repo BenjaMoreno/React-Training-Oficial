@@ -10,7 +10,7 @@ import { useState } from "react";
 import { IniciarSesion } from "./COMPONENTS/Formularios/IniciarSesion";
 import DropdownSesion from "./COMPONENTS/Boostrap/DropdownSesion";
 import { ContextoUsuario } from "./CONTEXTS/ContextoUsuario";
-
+import { RutaTres } from "./PAGES/ruta3/RutaTres";
 
 function App() {
   // ESTADOS
@@ -45,59 +45,63 @@ function App() {
   const objetoUsuario = (objeto) => {
     setObjetoUsuarioState(objeto);
   };
-  
+
   return (
-      <ContextoUsuario.Provider value={objetoUsuarioState}>
-        <UseContext_ContextoUno.Provider
-          value={{ contextoTexto, contextoObjeto }}
-        >
-          <BrowserRouter>
-            <div className="App">
-              <header>
-                <img id="LOGO-header" src={logo}></img>
-                <h1 id="nombre-usuario">
-                  {objetoUsuarioState == null ? "" : objetoUsuarioState.nombre}
-                </h1>
-                <nav>
-                  <ul>
-                    <li>
-                      <NavLink to="/">Inicio</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/rutauno">Ruta Uno</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/rutados">Ruta Dos</NavLink>
-                    </li>
-                    <li>
-                      <NavLink to="/">
-                        <DropdownSesion
-                          abrirFormSesion={abrirFormSesion}
-                          cerrarSesion={cerrarSesion}
-                        />
-                      </NavLink>
-                    </li>
-                  </ul>
-                </nav>
-              </header>
-              <main>
-                <Routes>
-                  <Route path="/" element={<Inicio />} />
-                  <Route path="/rutauno" element={<RutaUno />} />
-                  <Route path="/rutados" element={<RutaDos />} />
-                </Routes>
-              </main>
-              <footer></footer>
-            </div>
-          </BrowserRouter>
-          <Modal isOpen={formInicioSesion} style={estilosFormularioSesion}>
-            <IniciarSesion
-              cerrarFormSesion={cerrarFormSesion}
-              objetoUsuario={objetoUsuario}
-            />
-          </Modal>
-        </UseContext_ContextoUno.Provider>
-      </ContextoUsuario.Provider>
+    <ContextoUsuario.Provider value={objetoUsuarioState}>
+      <UseContext_ContextoUno.Provider
+        value={{ contextoTexto, contextoObjeto }}
+      >
+        <BrowserRouter>
+          <div className="App">
+            <header>
+              <img id="LOGO-header" src={logo}></img>
+              <h1 id="nombre-usuario">
+                {objetoUsuarioState == null ? "" : objetoUsuarioState.nombre}
+              </h1>
+              <nav>
+                <ul>
+                  <li>
+                    <NavLink to="/">Inicio</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/rutauno">Ruta Uno</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/rutados">Ruta Dos</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/rutatres">Ruta Tres</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/">
+                      <DropdownSesion
+                        abrirFormSesion={abrirFormSesion}
+                        cerrarSesion={cerrarSesion}
+                      />
+                    </NavLink>
+                  </li>
+                </ul>
+              </nav>
+            </header>
+            <main>
+              <Routes>
+                <Route path="/" element={<Inicio />} />
+                <Route path="/rutauno" element={<RutaUno />} />
+                <Route path="/rutados" element={<RutaDos />} />
+                <Route path="/rutatres" element={<RutaTres />} />
+              </Routes>
+            </main>
+            <footer></footer>
+          </div>
+        </BrowserRouter>
+        <Modal isOpen={formInicioSesion} style={estilosFormularioSesion}>
+          <IniciarSesion
+            cerrarFormSesion={cerrarFormSesion}
+            objetoUsuario={objetoUsuario}
+          />
+        </Modal>
+      </UseContext_ContextoUno.Provider>
+    </ContextoUsuario.Provider>
   );
 }
 const estilosFormularioSesion = {
